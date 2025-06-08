@@ -1,13 +1,13 @@
 import { google } from '@ai-sdk/google';
-import { generateText } from 'ai';
+import { streamText } from 'ai';
 
 export async function POST(req: Request) {
   const { messages } = await req.json();
 
-  const { text } = await generateText({
-model: google("models/gemini-2.0-flash-exp"),
-prompt: messages
-})
+  const result = await streamText({
+    model: google('gemini-pro'),
+    messages,
+  });
 
-  return text
+  return result.toDataStreamResponse();
 }
