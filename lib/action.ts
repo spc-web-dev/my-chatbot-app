@@ -6,7 +6,7 @@ import { streamText } from "ai";
 
 export async function generate(prompt:string){
 const result = await streamText({
-    model: google('models/gemini-1.5-flash-latest'),
+    model: google('gemini-2.0-flash'),
     prompt: prompt,
   });
   return {textStream: result.textStream}; 

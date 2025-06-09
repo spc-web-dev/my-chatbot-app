@@ -20,13 +20,16 @@ export default function Chat() {
   return (
     <div className="w-full h-screen flex justify-center p-10">
       <div className='w-[90%] relative h-full'>
+        <div className='fixed top-0 left-0 w-full h-16 flex items-center justify-center'>
+          <h1 className='py-2 px-5 bg-neutral-400 rounded-md'>Chat with AI. this ai chatbot created by ressann.</h1>
+        </div>
         <div className='w-full p-2 mb-8'>
           <pre className='inline-block text-wrap'>{answer}</pre>
         </div>
 
         <form onSubmit={handleSubmit}>
           <input
-            className="w-[50%] p-2 mb-8 border border-gray-300 rounded shadow-xl fixed bottom-0"
+            className="w-[50%] p-2 mb-8 border border-gray-300 rounded shadow-xl fixed bottom-0 backdrop-blur-sm"
             ref={inputRef}
             placeholder="Write something..."
           />
