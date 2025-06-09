@@ -2,6 +2,8 @@
 
 import { generate } from '@/lib/action';
 import {  useRef, useState } from 'react';
+import { Button } from './ui/button';
+import { Search } from 'lucide-react';
 
 export default function Chat() {
   const [answer,setAnswer] = useState('');
@@ -23,16 +25,17 @@ export default function Chat() {
         <div className='fixed top-0 left-0 w-full h-16 flex items-center justify-center'>
           <h1 className='py-2 px-5 bg-neutral-400 rounded-md'>Chat with AI. this ai chatbot created by ressann.</h1>
         </div>
-        <div className='w-full p-2 mb-8'>
+        <div className='w-full p-2 mb-8 pb-30'>
           <pre className='inline-block text-wrap'>{answer}</pre>
         </div>
 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className='fixed bottom-0 backdrop-blur-sm w-full'>
           <input
-            className="w-[50%] p-2 mb-8 border border-gray-300 rounded shadow-xl fixed bottom-0 backdrop-blur-sm"
+            className="w-[50%] p-2 mb-8 border border-gray-300 rounded shadow-xl "
             ref={inputRef}
             placeholder="Write something..."
           />
+          <Button type='submit'><Search/></Button>
         </form>
       </div>
     </div>
